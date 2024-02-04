@@ -1,5 +1,6 @@
 rootProject.name = "HumanBenchmark"
 
+include "AimTest"
 include "ChimpTest"
 include "MemoryTest"
 include "NumberMemory"

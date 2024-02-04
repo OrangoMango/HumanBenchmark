@@ -1,6 +1,9 @@
 # Humanbenchmark bots made in Java
 Try out the tests for humans here: [https://humanbenchmark.com](https://humanbenchmark.com)
 
+## Aim Trainer
+Link: [https://humanbenchmark.com/tests/aim](https://humanbenchmark.com/tests/aim)
+
 ## Chimp Test
 Link: [https://humanbenchmark.com/tests/chimp](https://humanbenchmark.com/tests/chimp)
 
