@@ -21,6 +21,9 @@ public class MemoryTest extends Application{
 	private boolean running = false;
 	private volatile boolean cooldown = true;
 
+	public static final int SX = 370;
+	public static final int SY = 320;
+
 	@Override
 	public void start(Stage stage){
 		this.robot = new Robot();
@@ -43,14 +46,12 @@ public class MemoryTest extends Application{
 
 	private void update(GraphicsContext gc){
 		gc.clearRect(0, 0, SIZE, SIZE);
-		final int sx = 370;
-		final int sy = 320;
 
 		if (this.running){
 			if (this.currentCombination.size() > 0){
 				if (this.cooldown){
 					Point2D point = this.currentCombination.remove(0);
-					this.robot.mouseMove(sx+point.getX()*150+50, sy+point.getY()*150+50);
+					this.robot.mouseMove(SX+point.getX()*150+50, SY+point.getY()*150+50);
 					this.robot.mouseClick(MouseButton.PRIMARY);
 					System.out.format("Pressing at %.0f %.0f\n", point.getX(), point.getY());
 					this.cooldown = false;
@@ -67,7 +68,7 @@ public class MemoryTest extends Application{
 				this.running = false;
 			}
 		} else {
-			Image image = this.robot.getScreenCapture(new WritableImage(SIZE, SIZE), sx, sy, SIZE, SIZE);
+			Image image = this.robot.getScreenCapture(new WritableImage(SIZE, SIZE), SX, SY, SIZE, SIZE);
 			PixelReader reader = image.getPixelReader();
 			gc.drawImage(image, 0, 0);
 
