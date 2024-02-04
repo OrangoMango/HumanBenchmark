@@ -32,8 +32,8 @@ public class AimTest extends Application{
 	}
 
 	private boolean update(){
-		final int sx = 40;
-		final int sy = 320;
+		final int sx = 40; // CHANGE
+		final int sy = 320; // CHANGE
 
 		Image image = this.robot.getScreenCapture(new WritableImage(WIDTH, HEIGHT), sx, sy, WIDTH, HEIGHT);
 		PixelReader reader = image.getPixelReader();
@@ -42,7 +42,7 @@ public class AimTest extends Application{
 			for (int j = 0; j < HEIGHT; j += 20){
 				Color color = reader.getColor(i, j);
 				if (Math.abs(color.getRed()-0.98) < 0.05 && Math.abs(color.getGreen()-0.81) < 0.05 && Math.abs(color.getBlue()-0.32) < 0.05){
-					return true;
+					return true; // If there is the color orange, then stop
 				}
 				if (isTarget(reader, i, j)){
 					this.robot.mouseMove(sx+i, sy+j);

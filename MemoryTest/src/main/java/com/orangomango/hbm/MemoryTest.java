@@ -15,14 +15,14 @@ import javafx.scene.input.MouseButton;
 import java.util.*;
 
 public class MemoryTest extends Application{
-	private static final int SIZE = 400;
+	private static final int SIZE = 400; // CHANGE
 	private Robot robot;
 	private List<Point2D> currentCombination = new ArrayList<>();
 	private boolean running = false;
 	private volatile boolean cooldown = true;
 
-	public static final int SX = 370;
-	public static final int SY = 320;
+	public static final int SX = 370; // CHANGE
+	public static final int SY = 320; // CHANGE
 
 	@Override
 	public void start(Stage stage){
@@ -51,7 +51,7 @@ public class MemoryTest extends Application{
 			if (this.currentCombination.size() > 0){
 				if (this.cooldown){
 					Point2D point = this.currentCombination.remove(0);
-					this.robot.mouseMove(SX+point.getX()*150+50, SY+point.getY()*150+50);
+					this.robot.mouseMove(SX+point.getX()*150+50, SY+point.getY()*150+50); // CHANGE
 					this.robot.mouseClick(MouseButton.PRIMARY);
 					System.out.format("Pressing at %.0f %.0f\n", point.getX(), point.getY());
 					this.cooldown = false;
@@ -82,7 +82,7 @@ public class MemoryTest extends Application{
 					} else {
 						gc.setFill(Color.RED);
 					}
-					gc.fillOval(i*150+50-25, j*150+50-25, 50, 50);
+					gc.fillOval(i*150+50-25, j*150+50-25, 50, 50); // CHANGE (debug)
 				}
 			}
 

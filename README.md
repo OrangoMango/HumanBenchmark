@@ -1,26 +1,36 @@
 # Humanbenchmark bots made in Java
-Try out the tests for humans here: [https://humanbenchmark.com](https://humanbenchmark.com)
+Try out the tests here: [https://humanbenchmark.com](https://humanbenchmark.com)
 
-## Aim Trainer
-Link: [https://humanbenchmark.com/tests/aim](https://humanbenchmark.com/tests/aim)
+## Tools used
+* JDK 17
+* JavaFX 17
+* Selenium 4.17.0
+* Gradle 7.5.1
 
-## Chimp Test
-Link: [https://humanbenchmark.com/tests/chimp](https://humanbenchmark.com/tests/chimp)
+## Bots
+| Test Name | Run command | Requires Selenium
+--- | --- | ---
+| [Aim Trainer](https://humanbenchmark.com/tests/aim) | `./gradlew :AimTest:run` | No
+| [Chimp Test](https://humanbenchmark.com/tests/chimp) | `./gradlew :ChimpTest:run` | Yes
+| [Sequence Memory](https://humanbenchmark.com/tests/sequence) | `./gradlew :MemoryTest:run` | No
+| [Number Memory](https://humanbenchmark.com/tests/number-memory)  | `./gradlew :NumberMemory:run` | Yes
+| [Reaction Time](https://humanbenchmark.com/tests/reactiontime) | `./gradlew :ReactionTest:run` | No
+| [Typing](https://humanbenchmark.com/tests/typing) | `./gradlew :TypingTest:run` | Yes
+| [Verbal Memory](https://humanbenchmark.com/tests/verbal-memory) | `./gradlew :VerbalTest:run` | Yes
+| [Visual Memory](https://humanbenchmark.com/tests/memory) | `./gradlew :VisualMemory:run` | No
+If on Windows, replace `./gradlew` with `.\gradlew.bat`
 
-## Sequence Memory
-Link: [https://humanbenchmark.com/tests/sequence](https://humanbenchmark.com/tests/sequence)
+## Important notes
+* Those bots are configured to run, based on *my* settings, be sure to change the variables marked by the comment `// CHANGE` according to *your* settings.
+* The "Visual Memory" bot has a static variable named `DEBUG`, you can change the value to true so that you can move the window around and configure properly the screenshot area (when false the bot runs faster).
+* Be sure to change the path of the chrome driver for the bots that use Selenium.
 
-## Number Memory
-Link: [https://humanbenchmark.com/tests/number-memory](https://humanbenchmark.com/tests/number-memory)
+## Download selenium
+Some bots use selenium to control the browser in order to get the current page source code.  
+If you want to use the bots marked with `Yes`, then you have to follow these steps:
+* Download from [here](https://www.selenium.dev/downloads/) the latest Selenium zip file for Java.
+* Put the contents in a folder named `jars`, located in the root directory of this repository. (Be sure to have also a `lib` directory inside the `jars` one)
+* The bots that use selenium will automatically find all the jars.
 
-## Reaction Time
-Link: [https://humanbenchmark.com/tests/reactiontime](https://humanbenchmark.com/tests/reactiontime)
-
-## Typing
-Link: [https://humanbenchmark.com/tests/typing](https://humanbenchmark.com/tests/typing)
-
-## Verbal Memory
-Link: [https://humanbenchmark.com/tests/verbal-memory](https://humanbenchmark.com/tests/verbal-memory)
-
-## Visual Memory
-Link: [https://humanbenchmark.com/tests/memory](https://humanbenchmark.com/tests/memory)
+## Some test results
+...

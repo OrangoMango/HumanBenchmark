@@ -14,10 +14,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.*;
 
 public class ChimpTest extends Application{
-	public static final int SX = 45;
-	public static final int SY = 280;
-	public static final int OK_BUTTON_X = 450;
-	public static final int OK_BUTTON_Y = 635;
+	public static final int SX = 45; // CHANGE
+	public static final int SY = 280; // CHANGE
+	public static final int OK_BUTTON_X = 450; // CHANGE
+	public static final int OK_BUTTON_Y = 635; // CHANGE
 
 	private Robot robot;
 
@@ -72,7 +72,7 @@ public class ChimpTest extends Application{
 					n = n.substring(1, n.length()-1);
 					int num = Integer.parseInt(n);
 					if (num > maxN) maxN = num;
-					points.put(num, new Point2D(colCounter+1, rowCounter)); // ?
+					points.put(num, new Point2D(colCounter+1, rowCounter)); // ? (idk)
 				}
 			}
 
@@ -82,7 +82,7 @@ public class ChimpTest extends Application{
 				Point2D pos = points.get(i);
 				Platform.runLater(() -> {
 					// The following numbers are used to calculate each square size
-					this.robot.mouseMove(SX+5+pos.getX()*87+35, SY+5+pos.getY()*90+40);
+					this.robot.mouseMove(SX+5+pos.getX()*87+35, SY+5+pos.getY()*90+40); // CHANGE
 					this.robot.mouseClick(MouseButton.PRIMARY);
 				});
 				Thread.sleep(100);

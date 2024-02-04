@@ -56,10 +56,10 @@ public class VerbalTest extends Application{
 			final String w = word;
 			Platform.runLater(() -> {
 				if (this.words.contains(w)){
-					this.robot.mouseMove(400, 590);
+					this.robot.mouseMove(400, 590); // CHANGE
 				} else {
 					this.words.add(w);
-					this.robot.mouseMove(550, 590);
+					this.robot.mouseMove(550, 590); // CHANGE
 				}
 				this.robot.mouseClick(MouseButton.PRIMARY);
 			});

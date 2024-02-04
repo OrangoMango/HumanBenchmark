@@ -17,7 +17,7 @@ import javafx.scene.Scene;
 import java.util.*;
 
 public class VisualMemory extends Application{
-	private static final int SIZE = 400;
+	private static final int SIZE = 400; // CHANGE
 	private Robot robot;
 	private List<Point2D> currentList = new ArrayList<>();
 	private boolean running = false;
@@ -50,8 +50,8 @@ public class VisualMemory extends Application{
 	}
 
 	private void update(GraphicsContext gc){
-		final int sx = 340;
-		final int sy = 390;
+		final int sx = 340; // CHANGE
+		final int sy = 390; // CHANGE
 		if (DEBUG) gc.clearRect(0, 0, SIZE, SIZE);
 		if (this.running){
 			if (this.currentList.size() > 0){
@@ -91,7 +91,7 @@ public class VisualMemory extends Application{
 			if (steps.size() < 3) return;
 			this.firstPiece = steps.get(2)-steps.get(1);
 			this.secondPiece = steps.get(1)-steps.get(0);
-			if (this.firstPiece >= this.secondPiece) return; // ?
+			if (this.firstPiece >= this.secondPiece) return;
 			int size = count/2;
 			//System.out.println(size+" "+firstPiece+" "+secondPiece);
 

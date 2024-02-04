@@ -25,11 +25,11 @@ public class ReactionTest extends Application{
 	}
 
 	private void update(){
-		Image image = this.robot.getScreenCapture(new WritableImage(5, 5), 450, 450, 5, 5);
+		Image image = this.robot.getScreenCapture(new WritableImage(5, 5), 450, 450, 5, 5); // CHANGE
 		PixelReader reader = image.getPixelReader();
 		Color color = reader.getColor(2, 2);
 		if (color.getGreen() > 0.8 && this.cooldown){
-			this.robot.mouseMove(450, 450);
+			this.robot.mouseMove(450, 450); // CHANGE
 			this.robot.mouseClick(MouseButton.PRIMARY);
 			this.robot.mouseClick(MouseButton.PRIMARY);
 			this.cooldown = false;
