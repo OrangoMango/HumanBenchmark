@@ -1,0 +1,9 @@
+rootProject.name = "HumanBenchmark"
+
+include "ChimpTest"
+include "MemoryTest"
+include "NumberMemory"
+include "ReactionTest"
+include "TypingTest"
+include "VerbalTest"
+include "VisualMemory"
