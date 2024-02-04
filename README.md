@@ -18,6 +18,7 @@ Try out the tests here: [https://humanbenchmark.com](https://humanbenchmark.com)
 | [Typing](https://humanbenchmark.com/tests/typing) | `./gradlew :TypingTest:run` | Yes
 | [Verbal Memory](https://humanbenchmark.com/tests/verbal-memory) | `./gradlew :VerbalTest:run` | Yes
 | [Visual Memory](https://humanbenchmark.com/tests/memory) | `./gradlew :VisualMemory:run` | No
+
 If on Windows, replace `./gradlew` with `.\gradlew.bat`
 
 ## Important notes
