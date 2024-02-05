@@ -27,11 +27,12 @@ If on Windows, replace `./gradlew` with `.\gradlew.bat`
 * Be sure to change the path of the chrome driver for the bots that use Selenium.
 
 ## Download selenium
-Some bots use selenium to control the browser in order to get the current page source code.  
+Some bots use selenium to control the browser in order to get the current page's source code.  
 If you want to use the bots marked with `Yes`, then you have to follow these steps:
 * Download from [here](https://www.selenium.dev/downloads/) the latest Selenium zip file for Java.
-* Put the contents in a folder named `jars`, located in the root directory of this repository. (Be sure to have also a `lib` directory inside the `jars` one)
+* Put the contents in a folder named `jars`, located in the root directory of this repository. (Be sure to also have a `lib` directory inside the `jars` one)
 * The bots that use selenium will automatically find all the jars.
 
 ## Some test results
-...
+RaspberryPi 4B, 2GB Ram
+![Screenshot from 2024-02-04 19-55-30](https://github.com/OrangoMango/HumanBenchmark/assets/61402409/3291ffc8-27e4-48bb-bda8-5ed4b7c88f38)
