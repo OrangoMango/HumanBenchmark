@@ -34,5 +34,6 @@ If you want to use the bots marked with `Yes`, then you have to follow these ste
 * The bots that use selenium will automatically find all the jars.
 
 ## Some test results
-RaspberryPi 4B, 2GB Ram
+RaspberryPi 4B, 2GB RAM
+
 ![Screenshot from 2024-02-04 19-55-30](https://github.com/OrangoMango/HumanBenchmark/assets/61402409/3291ffc8-27e4-48bb-bda8-5ed4b7c88f38)
