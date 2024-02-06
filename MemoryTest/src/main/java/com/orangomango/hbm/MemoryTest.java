@@ -14,6 +14,18 @@ import javafx.scene.input.MouseButton;
 
 import java.util.*;
 
+/**
+ * Sequence memory bot.
+ * The application is able to memorize the selected squares
+ * and reproduce them in the correct order.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * Start the test and wait until all squares are turned off.
+ * After that, run the program and move the window so that it fits perfectly.
+ */	
 public class MemoryTest extends Application{
 	private static final int SIZE = 400; // CHANGE
 	private Robot robot;
@@ -23,6 +35,8 @@ public class MemoryTest extends Application{
 
 	public static final int SX = 370; // CHANGE
 	public static final int SY = 320; // CHANGE
+
+	public static final boolean DEBUG = false;
 
 	@Override
 	public void start(Stage stage){
@@ -38,21 +52,25 @@ public class MemoryTest extends Application{
 		};
 		loop.start();
 
-		StackPane pane = new StackPane(canvas);
-		Scene scene = new Scene(pane, SIZE, SIZE);
-		stage.setScene(scene);
-		stage.show();
+		if (DEBUG){
+			StackPane pane = new StackPane(canvas);
+			Scene scene = new Scene(pane, SIZE, SIZE);
+			stage.setScene(scene);
+			stage.show();
+		}
 	}
 
 	private void update(GraphicsContext gc){
-		gc.clearRect(0, 0, SIZE, SIZE);
+		if (DEBUG) gc.clearRect(0, 0, SIZE, SIZE);
 
 		if (this.running){
 			if (this.currentCombination.size() > 0){
 				if (this.cooldown){
 					Point2D point = this.currentCombination.remove(0);
-					this.robot.mouseMove(SX+point.getX()*150+50, SY+point.getY()*150+50); // CHANGE
-					this.robot.mouseClick(MouseButton.PRIMARY);
+					if (!DEBUG){
+						this.robot.mouseMove(SX+point.getX()*150+50, SY+point.getY()*150+50); // CHANGE
+						this.robot.mouseClick(MouseButton.PRIMARY);
+					}
 					System.out.format("Pressing at %.0f %.0f\n", point.getX(), point.getY());
 					this.cooldown = false;
 					new Thread(() -> {
@@ -70,19 +88,19 @@ public class MemoryTest extends Application{
 		} else {
 			Image image = this.robot.getScreenCapture(new WritableImage(SIZE, SIZE), SX, SY, SIZE, SIZE);
 			PixelReader reader = image.getPixelReader();
-			gc.drawImage(image, 0, 0);
+			if (DEBUG) gc.drawImage(image, 0, 0);
 
 			Point2D open = null;
 			for (int i = 0; i < 3; i++){
 				for (int j = 0; j < 3; j++){
 					Color color = reader.getColor(i*150+50, j*150+50);
 					if (color.getRed() > 0.98 && color.getGreen() > 0.98 && color.getBlue() > 0.98){
-						gc.setFill(Color.GREEN);
+						if (DEBUG) gc.setFill(Color.GREEN);
 						open = new Point2D(i, j);
 					} else {
-						gc.setFill(Color.RED);
+						if (DEBUG) gc.setFill(Color.RED);
 					}
-					gc.fillOval(i*150+50-25, j*150+50-25, 50, 50); // CHANGE (debug)
+					if (DEBUG) gc.fillOval(i*150+50-25, j*150+50-25, 50, 50); // CHANGE (debug)
 				}
 			}
 

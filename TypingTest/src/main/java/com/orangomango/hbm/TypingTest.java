@@ -11,6 +11,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.*;
 
+/**
+ * Typing.
+ * The application loads the entire text and then writes it as fast as possible.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * No DEBUG is needed here, just be sure to select the area where all the
+ * text is contained so that when the application starts, it begins to write
+ * in the right place.
+ */
 public class TypingTest extends Application{
 	private Robot robot;
 	private String lastNum = null;

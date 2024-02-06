@@ -23,7 +23,8 @@ If on Windows, replace `./gradlew` with `.\gradlew.bat`
 
 ## Important notes
 * Those bots are configured to run, based on *my* settings, be sure to change the variables marked by the comment `// CHANGE` according to *your* settings.
-* The "Visual Memory" bot has a static variable named `DEBUG`, you can change the value to true so that you can move the window around and configure properly the screenshot area (when false the bot runs faster).
+* Some tests have a static variable named `DEBUG`, you can change the value to true so that you can move the window around and configure properly the screenshot area (when false the bot runs faster).
+* When using the debug mode, be sure to read the debug notes.
 * Be sure to change the path of the chrome driver for the bots that use Selenium.
 
 ## Download selenium

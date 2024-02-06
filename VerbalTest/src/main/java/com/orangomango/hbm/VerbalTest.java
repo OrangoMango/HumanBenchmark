@@ -12,7 +12,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.*;
 
+/**
+ * Verbal memory.
+ * The application simply uses a list to save all the encoutered words.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * Here there is no DEBUG, make a screenshot and note the coordinates
+ * of the "Seen" button and of the "New" button
+ */
 public class VerbalTest extends Application{
+	public static final int SEEN_BUTTON_X = 400; // CHANGE
+	public static final int NEW_BUTTON_X = 550; // CHANGE
+	public static final int BUTTON_Y = 590; // CHANGE
 	private Robot robot;
 	private List<String> words = new ArrayList<>();
 
@@ -56,10 +70,10 @@ public class VerbalTest extends Application{
 			final String w = word;
 			Platform.runLater(() -> {
 				if (this.words.contains(w)){
-					this.robot.mouseMove(400, 590); // CHANGE
+					this.robot.mouseMove(400, 590);
 				} else {
 					this.words.add(w);
-					this.robot.mouseMove(550, 590); // CHANGE
+					this.robot.mouseMove(550, 590);
 				}
 				this.robot.mouseClick(MouseButton.PRIMARY);
 			});

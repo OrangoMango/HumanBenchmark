@@ -7,35 +7,62 @@ import javafx.scene.paint.Color;
 import javafx.scene.robot.Robot;
 import javafx.scene.input.MouseButton;
 import javafx.animation.AnimationTimer;
+import javafx.scene.layout.StackPane;
+import javafx.scene.canvas.*;
+import javafx.scene.Scene;
 
 import java.util.function.Predicate;
 
+/**
+ * Aim trainer bot.
+ * It clicks as fast as possible on the target. When the orange button
+ * appears, the program exits.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * Make sure that the window covers the entire rectangle of the test.
+ */
 public class AimTest extends Application{
 	private static final int WIDTH = 900;
 	private static final int HEIGHT = 450;
-
 	private Robot robot;
+
+	public static final boolean DEBUG = false;
 
 	public void start(Stage stage){
 		this.robot = new Robot();
 
+		Canvas canvas = new Canvas(WIDTH, HEIGHT);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+
 		AnimationTimer loop = new AnimationTimer(){
 			@Override
 			public void handle(long time){
-				boolean stop = update();
+				boolean stop = update(gc);
 				if (stop){
 					System.exit(0);
 				}
 			}
 		};
 		loop.start();
+
+		if (DEBUG){
+			StackPane pane = new StackPane(canvas);
+			Scene scene = new Scene(pane, WIDTH, HEIGHT);
+			stage.setScene(scene);
+			stage.show();
+		}
 	}
 
-	private boolean update(){
+	private boolean update(GraphicsContext gc){
 		final int sx = 40; // CHANGE
 		final int sy = 320; // CHANGE
+		if (DEBUG) gc.clearRect(0, 0, WIDTH, HEIGHT);
 
 		Image image = this.robot.getScreenCapture(new WritableImage(WIDTH, HEIGHT), sx, sy, WIDTH, HEIGHT);
+		if (DEBUG) gc.drawImage(image, 0, 0);
 		PixelReader reader = image.getPixelReader();
 		outer:
 		for (int i = 0; i < WIDTH; i += 20){
@@ -45,8 +72,10 @@ public class AimTest extends Application{
 					return true; // If there is the color orange, then stop
 				}
 				if (isTarget(reader, i, j)){
-					this.robot.mouseMove(sx+i, sy+j);
-					this.robot.mouseClick(MouseButton.PRIMARY);
+					if (!DEBUG){
+						this.robot.mouseMove(sx+i, sy+j);
+						this.robot.mouseClick(MouseButton.PRIMARY);
+					}
 					break outer;
 				}
 			}

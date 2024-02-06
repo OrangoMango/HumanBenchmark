@@ -8,6 +8,18 @@ import javafx.scene.image.*;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.MouseButton;
 
+/**
+ * Reaction time.
+ * very simple application. The bot checks when a given pixel is green,
+ * and clicks on it as fast as possible.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * This is so easy to configure that no DEBUG is needed.
+ * Just change the coordinates where the application is reading and clicking (optional).
+ */
 public class ReactionTest extends Application{
 	private Robot robot;
 	private boolean cooldown = true;

@@ -9,6 +9,18 @@ import javafx.scene.input.KeyCode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+/**
+ * Number memory.
+ * The application simply reads the numbers on the screen
+ * and rewrites them in the text field
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * No DEBUG is needed here, as the application just reads the numbers
+ * and rewrites them in the text field.
+ */
 public class NumberMemory extends Application{
 	private Robot robot;
 	private String lastNum = null;

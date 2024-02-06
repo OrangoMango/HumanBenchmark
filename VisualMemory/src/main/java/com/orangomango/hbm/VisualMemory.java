@@ -9,13 +9,23 @@ import javafx.scene.image.*;
 import javafx.geometry.Point2D;
 import javafx.scene.input.MouseButton;
 import javafx.animation.AnimationTimer;
-
 import javafx.scene.layout.StackPane;
 import javafx.scene.canvas.*;
 import javafx.scene.Scene;
 
 import java.util.*;
 
+/**
+ * Visual memory.
+ * The application remembers the current pattern and then it selects
+ * all the correct squares.
+ * 
+ * @author OrangoMango
+ * @version 1.0
+ * 
+ * DEBUG notes:
+ * Move the window so that the red circles are perfectly aligned.
+ */
 public class VisualMemory extends Application{
 	private static final int SIZE = 400; // CHANGE
 	private Robot robot;
@@ -58,8 +68,10 @@ public class VisualMemory extends Application{
 				if (this.cooldown && this.canStart){
 					Point2D point = this.currentList.remove(0);
 					System.out.println(firstPiece+" "+secondPiece);
-					this.robot.mouseMove(sx+5+point.getX()*(secondPiece+firstPiece)+secondPiece/2, sy+5+point.getY()*(secondPiece+firstPiece)+secondPiece/2);
-					this.robot.mouseClick(MouseButton.PRIMARY);
+					if (!DEBUG){
+						this.robot.mouseMove(sx+5+point.getX()*(secondPiece+firstPiece)+secondPiece/2, sy+5+point.getY()*(secondPiece+firstPiece)+secondPiece/2);
+						this.robot.mouseClick(MouseButton.PRIMARY);
+					}
 					System.out.println("Selecting "+point);
 					this.cooldown = false;
 					schedule(() -> this.cooldown = true, 200);
