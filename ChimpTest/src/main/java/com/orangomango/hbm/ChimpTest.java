@@ -55,7 +55,7 @@ public class ChimpTest extends Application{
 			@Override
 			public void handle(long time){
 				gc.clearRect(0, 0, width, height);
-				Image image = ChimpTest.this.getScreenCapture(new WritableImage(width, height), SX, SY, width, height);
+				Image image = ChimpTest.this.robot.getScreenCapture(new WritableImage(width, height), SX, SY, width, height);
 				gc.drawImage(image, 0, 0);
 			}
 		};
@@ -77,7 +77,7 @@ public class ChimpTest extends Application{
 
 		if (DEBUG){
 			StackPane pane = new StackPane(canvas);
-			Scene scene = new Scene(pane, width, heigt);
+			Scene scene = new Scene(pane, width, height);
 			stage.setScene(scene);
 			stage.show();
 		}
