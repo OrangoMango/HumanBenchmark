@@ -1,5 +1,6 @@
 # Humanbenchmark bots made in Java
-Try out the tests here: [https://humanbenchmark.com](https://humanbenchmark.com)
+* Try out the tests here: [https://humanbenchmark.com](https://humanbenchmark.com)
+* Quick 1 minute video: [Youtube shorts](https://youtube.com/shorts/_GWY59W0Jm8?feature=share)
 
 ## Tools used
 * JDK 17
