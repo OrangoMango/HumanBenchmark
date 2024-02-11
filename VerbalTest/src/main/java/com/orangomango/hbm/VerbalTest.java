@@ -70,10 +70,10 @@ public class VerbalTest extends Application{
 			final String w = word;
 			Platform.runLater(() -> {
 				if (this.words.contains(w)){
-					this.robot.mouseMove(400, 590);
+					this.robot.mouseMove(SEEN_BUTTON_X, BUTTON_Y);
 				} else {
 					this.words.add(w);
-					this.robot.mouseMove(550, 590);
+					this.robot.mouseMove(NEW_BUTTON_X, BUTTON_Y);
 				}
 				this.robot.mouseClick(MouseButton.PRIMARY);
 			});
